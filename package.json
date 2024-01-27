@@ -1,0 +1,21 @@
+{
+    "name": "code_runner",
+    "version": "0.1.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js",
+        "dev": "nodemon --env-file=.env main.js"
+    },
+    "keywords": [
+        "code, code_runner"
+    ],
+    "author": "davronkhamdamov",
+    "license": "MIT",
+    "dependencies": {
+        "cookie-parser": "^1.4.6",
+        "express": "^4.18.2",
+        "http-errors": "^2.0.0",
+        "morgan": "^1.10.0"
+    }
+}
