@@ -19,7 +19,7 @@ function runJavaScriptCode(file_path) {
 }
 
 async function run_code(req, res) {
-    const { format = "cpp", code } = req.body;
+    const { format = "c", code } = req.body;
     if (!code) {
         return res.status(400).json({
             success: false,
