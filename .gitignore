@@ -1,6 +1,5 @@
-.env
 node_modules
-*-lock.json
-*-lock.yaml
-code/*
-outputs/*
+.env
+*-lock.*
+*/code/*
+*/outputs/*
