@@ -5,6 +5,8 @@ const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const codeRun = require("./router/code_runner");
+const cors = require("cors")
+app.use(cors({ origin: "http://localhost:3000" }))
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cookieParser());

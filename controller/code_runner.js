@@ -1,25 +1,11 @@
 const { exec } = require("child_process");
 const fs = require("fs");
 const { generateFile } = require("../lib/generateFile");
-const { executeC } = require("../lib/execute");
+const { executeC, executePy } = require("../lib/execute");
 
-function runJavaScriptCode(file_path) {
-    try {
-        return new Promise((resolve, reject) => {
-            exec("python " + file_path, (error, stdout, stderr) => {
-                error && reject({ error, stderr });
-                stderr && reject(stderr);
-                resolve(stdout);
-            });
-        });
-    } catch (error) {
-        console.error(`An error occurred: ${error.message}`);
-        return { error: error.message };
-    }
-}
 
 async function run_code(req, res) {
-    const { format = "c", code } = req.body;
+    const { language = "c", code } = req.body;
     if (!code) {
         return res.status(400).json({
             success: false,
@@ -27,11 +13,16 @@ async function run_code(req, res) {
         });
     }
     try {
-        const filePath = generateFile(format, code);
-        const output = await executeC(filePath);
+        const filePath = generateFile(language, code);
+        let output;
+        if (language === "c") {
+            output = await executeC(filePath);
+        } else if (language === "py") {
+            output = await executePy(filePath)
+        }
         res.send({ output });
     } catch (error) {
-        res.status(500).json(error);
+        res.status(500).send(error);
     }
     // fs.writeFile("./controller/code/test.py", codeToRun, async (error) => {
     //     if (error) throw new Error("Cannot write a file");

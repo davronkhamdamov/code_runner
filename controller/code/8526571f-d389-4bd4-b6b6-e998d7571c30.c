@@ -1,0 +1,1 @@
+#include <stdio.h>\n\nint main()\n{\n\tprintf(\"Hello\\n\");\n}
