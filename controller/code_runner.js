@@ -6,7 +6,9 @@ async function Status(req, res) {
   const jobId = req.query.id;
 
   if (!jobId) {
-    res.status(400).send({ success: false, error: "Missing id query param" });
+    return res
+      .status(400)
+      .send({ success: false, error: "Missing id query param" });
   }
   try {
     const job = await Job.findById(jobId);
