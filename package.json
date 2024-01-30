@@ -1,24 +1,27 @@
 {
-    "name": "code_runner",
-    "version": "0.1.0",
-    "description": "",
-    "main": "main.js",
-    "scripts": {
-        "start": "node main.js",
-        "dev": "nodemon --env-file=.env main.js"
-    },
-    "keywords": [
-        "code, code_runner"
-    ],
-    "author": "davronkhamdamov",
-    "license": "MIT",
-    "dependencies": {
-        "cookie-parser": "^1.4.6",
-        "cors": "^2.8.5",
-        "express": "^4.18.2",
-        "http-errors": "^2.0.0",
-        "mongoose": "^8.1.1",
-        "morgan": "^1.10.0",
-        "uuid": "^9.0.1"
-    }
+  "name": "code_runner",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon --env-file=.env main.js",
+    "test": "mocha --timeout 20000 *.test.js"
+  },
+  "keywords": [
+    "code, code_runner"
+  ],
+  "author": "davronkhamdamov",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "mocha": "^10.2.0",
+    "mongoose": "^8.1.1",
+    "morgan": "^1.10.0",
+    "supertest": "^6.3.4",
+    "uuid": "^9.0.1"
+  }
 }
